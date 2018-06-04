@@ -12,6 +12,9 @@ import RegisterPage from './components/RegisterPage/RegisterPage';
 import UserPage from './components/UserPage/UserPage';
 import InfoPage from './components/InfoPage/InfoPage';
 
+import Home from './components/Portal/Home';
+import Main from './components/Portal/GameInterface/Main';
+
 import './styles/main.css';
 
 const App = () => (
@@ -22,7 +25,7 @@ const App = () => (
         <Redirect exact from="/" to="/home" />
         <Route
           path="/home"
-          component={LoginPage}
+          component={Home}
         />
         <Route
           path="/register"
