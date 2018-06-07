@@ -1,5 +1,6 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: black;
 }
 
 .instructions h1 {
@@ -13,7 +14,7 @@ body {
     color: #ece7e7;
 }
 
-form {
+/* form {
     background-color: #dbd5d5;
     width: 30%;
     height: 250px;
@@ -29,6 +30,21 @@ input {
 
 input[type="submit"] {
     margin: 10px;
+} */
+
+.logo {
+    height: 60px;
+    width: 215px;
+}
+
+.AppBar > * {
+    background-color: #2f222f;
+}
+
+#screen-error {
+    text-align: center;
+    margin: auto;
+    color: white;
 }
 
 .message {
@@ -77,4 +93,92 @@ li a {
 li a:hover {
     text-decoration: underline;
     color: #eee;
+}
+
+
+/* Tweak settings */
+
+* {
+    margin: 0px;
+}
+
+.Header {
+    height: 60px;
+    /* background-color: #2f222f; */
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.Header > * {
+    display: inline-block;
+}
+
+.header-login {
+    float: right;
+    height: inherit;
+}
+
+InputLabel {
+    color: white;
+}
+
+.header-login Input {
+    width: 8em;
+}
+
+.il-block {
+    display: inline-block;
+}
+
+.Home {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+.inset-shadow {
+    box-shadow: 0 6px 16px 0 #000 inset;
+    background-color: #ccc;
+    border-radius: 5px;
+    margin: auto;
+    padding: 8px;
+    height: 100%;
+}
+
+.login-logout {
+    margin-left: auto;
+    margin-right: 0px;
+}
+
+.alert {
+    color: red;
+}
+
+.Header label {
+    width: 8em;
+    color: white;
+}
+
+div.MuiInput-underline-56 {
+    border-bottom: 1px solid rgba(58, 69, 172, 0.801);
+}
+.Header input {
+    color: white;
+    background-color: #fff2
+}
+
+form div {
+    width: 8em;
+}
+
+.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grid-container {
+    display: grid;
+    height: inherit;
+    width: inherit;
+    align-content: center;
 }
