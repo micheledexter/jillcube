@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+// import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import InputLabel from '@material-ui/core/InputLabel';
+// import InputLabel from '@material-ui/core/InputLabel';
 import { triggerLogin, triggerLogout, formError, clearError } from '../../redux/actions/loginActions';
-import axios from 'axios';
+// import axios from 'axios';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -97,35 +97,36 @@ class Header extends Component {
               <img className="il-block logo" src="images/jillcube-light.png" alt="placeholder" />
               <div className="login-logout il-block">
                 {!this.props.user.userName ?
-                  <div className="login il-block">
-                    {this.renderAlert()}
-                    <form onSubmit={this.login}>
-                      <TextField
-                        id="username-input"
-                        label="Username"
-                        type="text"
-                        name="username"
-                        value={this.state.username}
-                        onChange={this.handleInputChangeFor('username')}
-                      // style={{ backgroundColor:"aliceblue" }}
-                      />
-                      <TextField
-                        id="password-input"
-                        label="Password"
-                        type="password"
-                        autoComplete="current-password"
-                        value={this.state.password}
-                        onChange={this.handleInputChangeFor('password')}
-                      />
-                      <Button
-                        type="submit"
-                        name="submit"
-                        variant="raised"
-                        color="secondary"
-                        onClick={this.login}
-                      >Log in</Button>
-                    </form>
-                  </div>
+                  (!this.state.registration ?
+                    <div className="login il-block">
+                      {this.renderAlert()}
+                      <form onSubmit={this.login}>
+                        <TextField
+                          id="username-input"
+                          label="Username"
+                          type="text"
+                          name="username"
+                          value={this.state.username}
+                          onChange={this.handleInputChangeFor('username')}
+                        />
+                        <TextField
+                          id="password-input"
+                          label="Password"
+                          type="password"
+                          autoComplete="current-password"
+                          value={this.state.password}
+                          onChange={this.handleInputChangeFor('password')}
+                        />
+                        <Button
+                          type="submit"
+                          name="submit"
+                          variant="raised"
+                          color="secondary"
+                          onClick={this.login}
+                        >Log in</Button>
+                      </form>
+                    </div>
+                  : <h1> hi</h1>)
                   : <Button
                     onClick={this.logout}
                     variant="raised"

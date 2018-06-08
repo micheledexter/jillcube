@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../../styles/main.css';
-import LoginPage from '../LoginPage/LoginPage';
-import { triggerLogout } from '../../redux/actions/loginActions';
 import Main from './GameInterface/Main';
+import Button from '@material-ui/core/Button';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
 import orange from '@material-ui/core/colors/orange';
-import PlayerResponse from './GameInterface/PlayerResponse';
 
 const theme = createMuiTheme({
   palette: {
@@ -43,12 +41,16 @@ class Home extends Component {
           <p>Your screen size is: {window.innerWidth}x{window.innerHeight}</p>
         </div> :
         <div className="inset-shadow">
-        <h1 className="center">Welcome to Jillcube!</h1>
-          {!this.props.user.userName ? <div>
-            {/* <button className="main-button" onClick={this.loginFocus}>Please log in</button> */}
-            <Main />
+          {!this.props.user.userName ? <div id="menu-buttons">
+            <Button
+              id="login-to-play"
+              size="large"
+              onClick={this.loginFocus}
+              style={{ marginTop:"20%" }}
+              variant="raised"
+            >Please log in to play!</Button>
           </div> : <div>
-            <PlayerResponse response="The USSR" />
+            <Main />
           </div>}
         </div>
         }

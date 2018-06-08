@@ -11,26 +11,11 @@ import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import UserPage from './components/UserPage/UserPage';
 import InfoPage from './components/InfoPage/InfoPage';
+import Mobile from './components/Portal/Mobile/Mobile';
 
 import Home from './components/Portal/Home';
-import Main from './components/Portal/GameInterface/Main';
 
 import './styles/main.css';
-
-import { createMuiTheme } from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
-import orange from '@material-ui/core/colors/orange';
-
-const theme = createMuiTheme({
-  palette: {
-    primary: purple,
-    secondary: green,
-    error: orange,
-    contrastThreshold: 3,
-    tonalOffset: 0.2,
-  },
-});
 
 class App extends Component {
   constructor(props) {
@@ -70,6 +55,10 @@ class App extends Component {
           <Router>
             <Switch>
               <Redirect exact from="/" to="/home" />
+              <Route
+                path="/mobile"
+                component={Mobile}
+              />
               <Route
                 path="/home"
                 component={Home}
