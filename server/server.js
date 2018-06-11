@@ -8,8 +8,12 @@ const sessionMiddleware = require('./modules/session-middleware');
 
 const passport = require('./strategies/user.strategy');
 
-// Route includes
+// Route includes ---------- DON'T FORGET ABOUT PART II BELOW
 const userRouter = require('./routes/user.router');
+const dataRouter = require('./routes/data.router');
+const playerRouter = require('./routes/players.router');
+const gameInstanceRouter = require('./routes/game-instance.router');
+const answerRouter = require('./routes/answer.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -22,8 +26,12 @@ app.use(sessionMiddleware);
 app.use(passport.initialize());
 app.use(passport.session());
 
-/* Routes */
+/* Routes ---------- THIS IS PART II*/
 app.use('/api/user', userRouter);
+app.use('/api/data', dataRouter);
+app.use('/api/players', playerRouter);
+app.use('/api/game-instance', gameInstanceRouter);
+app.use('/api/answers', answerRouter);
 
 // Serve static files
 app.use(express.static('build'));

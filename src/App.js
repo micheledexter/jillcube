@@ -7,10 +7,10 @@ import {
 } from 'react-router-dom';
 
 import Header from './components/Header/Header';
-import LoginPage from './components/LoginPage/LoginPage';
-import RegisterPage from './components/RegisterPage/RegisterPage';
-import UserPage from './components/UserPage/UserPage';
-import InfoPage from './components/InfoPage/InfoPage';
+// import LoginPage from './components/LoginPage/LoginPage';
+// import RegisterPage from './components/RegisterPage/RegisterPage';
+// import UserPage from './components/UserPage/UserPage';
+// import InfoPage from './components/InfoPage/InfoPage';
 import Mobile from './components/Portal/Mobile/Mobile';
 
 import Home from './components/Portal/Home';
@@ -63,22 +63,22 @@ class App extends Component {
                 path="/home"
                 component={Home}
               />
-              <Route
+              {/* <Route
                 path="/register"
                 component={RegisterPage}
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/user"
                 component={UserPage}
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/info"
                 component={InfoPage}
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/login"
                 component={LoginPage}
-              />
+              /> */}
               {/* OTHERWISE (no path!) */}
               <Route render={() => <h1>404</h1>} />
 

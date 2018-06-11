@@ -55,6 +55,7 @@ class Mobile extends Component {
   render() {
     return(
       <div>
+        <p style={{ color:"white" }}>{JSON.stringify(this.props)}<br />{JSON.stringify(this.state)}</p>
         {!this.props.user.userName ? 
           <div>
             { this.renderAlert() }

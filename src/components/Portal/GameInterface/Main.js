@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import '../../../styles/main.css';
 // import Grid from '@material-ui/core/Grid';
 // import Paper from '@material-ui/core/Paper';
-import Responses from './Responses';
-import Question from './Question';
-import Scores from './Scores';
+// import Responses from './Responses';
+// import Question from './Question';
+// import Scores from './Scores';
 
 // const styles = theme => ({
 //   root: {
@@ -40,9 +40,9 @@ class Main extends Component {
   render() {
     return (
       <div className="Main">
-        <Question prompt="A rejected title in the Magic School Bus series: The Magic School Bus Goes to..." />
+        {/* <Question prompt="A rejected title in the Magic School Bus series: The Magic School Bus Goes to..." />
         <Responses player1={{name:"Watson", response:"The USSR"}} player2={{name:"Holmes", response:"North Korea"}} />
-        <Scores player1="Watson" player2="Holmes"/>
+        <Scores player1="Watson" player2="Holmes"/> */}
       </div>
     );
   }

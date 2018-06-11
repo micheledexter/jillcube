@@ -48,6 +48,7 @@ class Home extends Component {
               onClick={this.loginFocus}
               style={{ marginTop:"20%" }}
               variant="raised"
+              color="primary"
             >Please log in to play!</Button>
           </div> : <div>
             <Main />
