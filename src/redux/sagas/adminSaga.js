@@ -5,7 +5,7 @@ import { fetchGameData } from '../requests/adminRequests';
 function* getGameData() {
   try {
     const response = yield fetchGameData();
-    yield put({ type: ADMIN_ACTIONS.SET_GAME_DATA, payload:response.data });
+    yield put({ type: ADMIN_ACTIONS.SET_GAME_DATA, payload:response });
   } catch (error) {
     console.error(error);
   }
