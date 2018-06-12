@@ -1,0 +1,4 @@
+export const ADMIN_ACTIONS = {
+  SET_GAME_DATA: 'SET_GAME_DATA',
+  GET_GAME_DATA: 'GET_GAME_DATA',
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { triggerLogin, triggerLogout, formError, clearError } from '../../../redux/actions/loginActions';
 import { USER_ACTIONS } from '../../../redux/actions/userActions';
+import Button from '@material-ui/core/Button';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -31,7 +32,7 @@ class Mobile extends Component {
     if (this.state.username === '' || this.state.password === '') {
       this.props.dispatch(formError());
     } else {
-      this.props.dispatch(triggerLogin(this.state.username, this.state.passwod));
+      this.props.dispatch(triggerLogin(this.state.username, this.state.password));
     }
   }
 
@@ -54,7 +55,7 @@ class Mobile extends Component {
 
   render() {
     return(
-      <div>
+      <div className="Mobile">
         <p style={{ color:"white" }}>{JSON.stringify(this.props)}<br />{JSON.stringify(this.state)}</p>
         {!this.props.user.userName ? 
           <div>
@@ -94,8 +95,15 @@ class Mobile extends Component {
           </div>
           :
           <div>
-          <button>Join game</button>
-          <button onClick={() => this.props.dispatch(triggerLogout())}>Logout</button>
+          <Button
+            variant="raised"
+            color="secondary"
+          >Join game</Button><br />
+          <Button 
+            variant="raised"
+            color="primary"
+            onClick={() => this.props.dispatch(triggerLogout())}
+          >Logout</Button>
           </div>
           }
       </div>

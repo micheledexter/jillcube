@@ -11,6 +11,7 @@ import Header from './components/Header/Header';
 // import RegisterPage from './components/RegisterPage/RegisterPage';
 // import UserPage from './components/UserPage/UserPage';
 // import InfoPage from './components/InfoPage/InfoPage';
+import Admin from './components/Portal/Admin/Admin';
 import Mobile from './components/Portal/Mobile/Mobile';
 
 import Home from './components/Portal/Home';
@@ -63,6 +64,10 @@ class App extends Component {
                 path="/home"
                 component={Home}
               />
+              <Route
+                path="/admin"
+                component={Admin}
+              />
               {/* <Route
                 path="/register"
                 component={RegisterPage}
@@ -80,7 +85,7 @@ class App extends Component {
                 component={LoginPage}
               /> */}
               {/* OTHERWISE (no path!) */}
-              <Route render={() => <h1>404</h1>} />
+              <Route render={() => <h1 style={{ color:"white" }}>404</h1>} />
 
             </Switch>
           </Router>

@@ -6,6 +6,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux';
+import { ADMIN_ACTIONS } from '../../../redux/actions/adminActions';
 
 import GameData from './GameData';
 
@@ -31,9 +32,19 @@ const styles = theme => ({
 });
 
 class Admin extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 0
+    }
+  }
   state = {
     value: 0,
   };
+
+  componentDidMount() {
+    this.props.dispatch({type: ADMIN_ACTIONS.GET_GAME_DATA});
+  }
 
   handleChange = (event, value) => {
     this.setState({ value });
@@ -44,7 +55,7 @@ class Admin extends React.Component {
     const { value } = this.state;
 
     return (
-      <div className={classes.root} style={{height:this.props.state.size.height-76}}>
+      <div className={classes.root}>
         <AppBar position="static">
           <Tabs value={value} onChange={this.handleChange}>
             <Tab label="Item One" />
