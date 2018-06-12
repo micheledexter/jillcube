@@ -191,8 +191,12 @@ form div {
     margin-left: auto;
     margin-right: auto;
 }
+#start-game {
+    margin-left: auto;
+    margin-right: auto;
+}
 
-#menu-buttons {
+.menu-buttons {
     text-align: center;
 }
 

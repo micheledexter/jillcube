@@ -23,13 +23,15 @@ class InfoPage extends Component {
 
     if (this.props.user.userName) {
       content = (
-        <div>
+        <div className="start-game">
           <Button
               id="start-game"
+              className="menu-button"
               size="large"
-              style={{ marginTop:"20%" }}
+              style={{ marginTop:"20%", marginLeft:"auto", marginRight:"auto" }}
               variant="raised"
               color="primary"
+              onClick={() => this.props.dispatch({type: 'START_GAME', payload:this.props.user.username})}
             >Start a new game!</Button>
         </div>
       );

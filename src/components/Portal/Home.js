@@ -43,7 +43,7 @@ class Home extends Component {
           <p>Your screen size is: {window.innerWidth}x{window.innerHeight}</p>
         </div> :
         <div className="inset-shadow">
-          {!this.props.user.userName ? <div id="menu-buttons">
+          {!this.props.user.userName ? <div className="menu-buttons">
             <Button
               id="login-to-play"
               size="large"

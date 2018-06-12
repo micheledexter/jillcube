@@ -10,6 +10,7 @@ import TextField from '@material-ui/core/TextField';
 import { triggerLogin, triggerLogout, formError, clearError } from '../../redux/actions/loginActions';
 // import axios from 'axios';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
+import { Link } from 'react-router-dom';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
@@ -94,7 +95,7 @@ class Header extends Component {
         <MuiThemeProvider theme={theme}>
           <AppBar className="AppBar" position="static" color="default">
             <Toolbar style={{ minHeight: "60px", height: "60px" }}>
-              <img className="il-block logo" src="images/jillcube-light.png" alt="placeholder" />
+              <Link to="/"><img className="il-block logo" src="images/jillcube-light.png" alt="placeholder" /></Link>
               <div className="login-logout il-block">
               {this.props.showLogin === 'true' ?
                 (!this.props.user.userName ?

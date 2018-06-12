@@ -5,6 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
+import Header from '../../Header/Header';
 import { connect } from 'react-redux';
 import { ADMIN_ACTIONS } from '../../../redux/actions/adminActions';
 
@@ -56,9 +57,10 @@ class Admin extends React.Component {
 
     return (
       <div className={classes.root}>
+        <Header showLogin="true" />
         <AppBar position="static">
           <Tabs value={value} onChange={this.handleChange}>
-            <Tab label="Item One" />
+            <Tab label="Game Data" />
             <Tab label="Item Two" />
             <Tab label="Item Three" href="#basic-tabs" />
           </Tabs>

@@ -1,7 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -12,19 +10,17 @@ import Paper from '@material-ui/core/Paper';
 const mapStateToProps = state => ({
   user: state.user,
   login: state.login,
+  data: state.admin.gameData,
   state,
 });
 
 const GameData = props => (
   <div className="GameData">
-    <h1>Game Data</h1>
     <Paper>
+      <h1 style={{ textAlign:"center", padding:"10px" }}>Game Data</h1>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>
-              ID
-            </TableCell>
             <TableCell>
               Prompt
             </TableCell>
@@ -37,11 +33,11 @@ const GameData = props => (
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.state.admin.gameData.map((item, i) => 
+          <form>
+
+          </form>
+          {props.data.map((item, i) => 
           <TableRow key={i}>
-            <TableCell>
-              {item.id}
-            </TableCell>
             <TableCell>
               {item.prompt}
             </TableCell>
