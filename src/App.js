@@ -6,7 +6,6 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import Header from './components/Header/Header';
 // import LoginPage from './components/LoginPage/LoginPage';
 // import RegisterPage from './components/RegisterPage/RegisterPage';
 // import UserPage from './components/UserPage/UserPage';
@@ -52,7 +51,6 @@ class App extends Component {
     return (
       <div className="App">
         <div>
-          <Header title="Project Base" />
           <Router>
             <Switch>
               <Redirect exact from="/" to="/home" />

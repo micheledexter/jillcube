@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import '../../styles/main.css';
 import Main from './GameInterface/Main';
 import Button from '@material-ui/core/Button';
+import Header from '../Header/Header';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
@@ -33,6 +34,7 @@ class Home extends Component {
   render() {
     return (
       <div className="Home" style={{ width: window.innerWidth, height: window.innerHeight-76 }}>
+      <Header showLogin="true"/>
       <MuiThemeProvider theme={ theme }>
         {(window.innerWidth < 800 || window.innerHeight < 600) ? 
         <div id="screen-error" style={{ marginTop:(window.innerHeight/3) }}>

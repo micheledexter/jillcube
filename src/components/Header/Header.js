@@ -96,7 +96,8 @@ class Header extends Component {
             <Toolbar style={{ minHeight: "60px", height: "60px" }}>
               <img className="il-block logo" src="images/jillcube-light.png" alt="placeholder" />
               <div className="login-logout il-block">
-                {!this.props.user.userName ?
+              {this.props.showLogin === 'true' ?
+                (!this.props.user.userName ?
                   (!this.state.registration ?
                     <div className="login il-block">
                       {this.renderAlert()}
@@ -130,7 +131,8 @@ class Header extends Component {
                   : <Button
                     onClick={this.logout}
                     variant="raised"
-                    color="primary">Logout</Button>}
+                    color="primary">Logout</Button>) :null
+                    }
               </div>
             </Toolbar>
           </AppBar>

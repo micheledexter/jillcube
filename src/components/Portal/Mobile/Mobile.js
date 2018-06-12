@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { triggerLogin, triggerLogout, formError, clearError } from '../../../redux/actions/loginActions';
 import { USER_ACTIONS } from '../../../redux/actions/userActions';
+import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
+import Header from '../../Header/Header';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -56,7 +58,8 @@ class Mobile extends Component {
   render() {
     return(
       <div className="Mobile">
-        <p style={{ color:"white" }}>{JSON.stringify(this.props)}<br />{JSON.stringify(this.state)}</p>
+      <Header showLogin="false" />
+        <p>{JSON.stringify(this.props)}<br />{JSON.stringify(this.state)}</p>
         {!this.props.user.userName ? 
           <div>
             { this.renderAlert() }
@@ -65,7 +68,7 @@ class Mobile extends Component {
               <div>
                 <label htmlFor="username">
                   Username:
-                  <input
+                  <Input
                   type="text"
                   name="username"
                   value={this.state.username}
@@ -76,7 +79,7 @@ class Mobile extends Component {
               <div>
                 <label htmlFor="password">
                   Password:
-                  <input
+                  <Input
                     type="password"
                     name="password"
                     value={this.state.password}
@@ -85,7 +88,7 @@ class Mobile extends Component {
                 </label>
               </div>
               <div>
-                <input
+                <Input
                   type="submit"
                   name="submit"
                   value="Log In"
