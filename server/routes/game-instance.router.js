@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
 // GET /api/game-instance/id/:id
 router.get('/id/:id', (req, res) => {
   let queryText = `SELECT * FROM "game_instance" WHERE "id" = $1;`;
-  pool.query(queryText, req.params.id).then(response => {
+  pool.query(queryText, [req.params.id]).then(response => {
     res.send(response.rows);
   }).catch(error => {
     console.error(`ERROR trying to GET /api/game-instance/id/:id: ${error}`);
@@ -36,7 +36,7 @@ router.get('/id/:id', (req, res) => {
 // GET /api/game-instance/code/:code
 router.get('/code/:code', (req, res) => {
   let queryText = `SELECT * FROM "game_instance" WHERE "code" = $1;`;
-  pool.query(queryText, req.params.code).then(response => {
+  pool.query(queryText, [req.params.code]).then(response => {
     res.send(response.rows);
   }).catch(error => {
     console.error(`ERROR trying to GET /api/game-instance/code/:code: ${error}`);
@@ -53,10 +53,10 @@ router.get('/code/:code', (req, res) => {
 router.post('/', (req, res) => {
   if (req.isAuthenticated()) {
     const game = req.body;
-    let queryText = `INSERT INTO "game_instance" ("start_time", "status", "game_id") VALUES ($1, $2, $3);`;
+    let queryText = `INSERT INTO "game_instance" ("status", "code", "game_id") VALUES ($1, $2, $3);`;
     let queryBody = [
-      Date(),
       'pending',
+      game.code,
       game.gameId
     ];
     pool.query(queryText, queryBody).then(() => {
@@ -83,10 +83,31 @@ router.put('/status/:id', (req, res) => {
       status,
       id
     ];
-    pool.query(queryText, queryBody).then(response => {
+    pool.query(queryText, queryBody).then(() => {
       res.sendStatus(202);
-    })
+    }).catch(error => {
+      console.error(`ERROR trying to PUT /api/game-instance/status/:id: ${error}`);
+      res.sendStatus(500);
+    });
   }
-})
+});
+
+/**
+ * DELETE routes
+ */
+
+// DELETE /api/game-instance/:id
+router.delete('/:id', (req, res) => {
+  if (req.isAuthenticated()) {
+    const id = req.params.id;
+    const queryText = `DELETE FROM "game_instance" WHERE "id" = $1;`;
+    pool.query(queryText, [id]).then(() => {
+      res.sendStatus(200);
+    }).catch(error => {
+      console.error(`ERROR trying to DELETE /api/game-instance/:id: ${error}`);
+      res.sendStatus(500);
+    });
+  }
+});
 
 module.exports = router;

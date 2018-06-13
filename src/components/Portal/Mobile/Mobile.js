@@ -5,6 +5,7 @@ import { USER_ACTIONS } from '../../../redux/actions/userActions';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import Header from '../../Header/Header';
+import './mobile.css';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -35,6 +36,10 @@ class Mobile extends Component {
       this.props.dispatch(formError());
     } else {
       this.props.dispatch(triggerLogin(this.state.username, this.state.password));
+      this.setState({
+        username: '',
+        password: '',
+      });
     }
   }
 
@@ -61,11 +66,11 @@ class Mobile extends Component {
       <Header showLogin="false" />
         <p>{JSON.stringify(this.props)}<br />{JSON.stringify(this.state)}</p>
         {!this.props.user.userName ? 
-          <div>
+          <div style={{ textAlign:"center" }}>
             { this.renderAlert() }
             <form onSubmit={this.login}>
               <h1>Login</h1>
-              <div>
+              <div style={{ className:"centerBox" }}>
                 <label htmlFor="username">
                   Username:
                   <Input
@@ -76,7 +81,7 @@ class Mobile extends Component {
                 />
                 </label>
               </div>
-              <div>
+              <div style={{ className:"centerBox" }}>
                 <label htmlFor="password">
                   Password:
                   <Input
@@ -97,16 +102,16 @@ class Mobile extends Component {
             </form>
           </div>
           :
-          <div>
-          <Button
-            variant="raised"
-            color="secondary"
-          >Join game</Button><br />
-          <Button 
-            variant="raised"
-            color="primary"
-            onClick={() => this.props.dispatch(triggerLogout())}
-          >Logout</Button>
+          <div style={{ textAlign:"center" }}>
+            <Button
+              variant="raised"
+              color="secondary"
+            >Join game</Button><br />
+            <Button 
+              variant="raised"
+              color="primary"
+              onClick={() => this.props.dispatch(triggerLogout())}
+            >Logout</Button>
           </div>
           }
       </div>

@@ -6,6 +6,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -30,6 +31,7 @@ const GameData = props => (
             <TableCell>
               Answer (for game 2)
             </TableCell>
+            <TableCell></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -46,6 +48,14 @@ const GameData = props => (
             </TableCell>
             <TableCell>
               {item.answer}
+            </TableCell>
+            <TableCell>
+              <Button
+              id={item.id}
+              variant="raised"
+              color="secondary"
+              onClick={() => props.dispatch({type: "DELETE_DATA_ENTRY", payload:item.id})}
+              >Delete</Button>
             </TableCell>
           </TableRow>
           )}
