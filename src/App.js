@@ -15,6 +15,9 @@ import Mobile from './components/Portal/Mobile/Mobile';
 
 import Home from './components/Portal/Home';
 import StartGame from './components/Portal/GameInterface/MainComponents/StartGame';
+import RoundTwo from './components/Portal/GameInterface/MainComponents/RoundTwo';
+import RoundThree from './components/Portal/GameInterface/MainComponents/RoundThree';
+import FinalScore from './components/Portal/GameInterface/MainComponents/FinalScore';
 
 import './styles/main.css';
 
@@ -70,6 +73,18 @@ class App extends Component {
               <Route
                 path="/game"
                 component={StartGame}
+              />
+              <Route
+                path="/2"
+                component={RoundTwo}
+              />
+              <Route
+                path="/3"
+                component={RoundThree}
+              />
+              <Route
+                path="/end"
+                component={FinalScore}
               />
               {/* <Route
                 path="/register"
