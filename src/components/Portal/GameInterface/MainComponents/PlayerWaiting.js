@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -31,6 +32,10 @@ class PlayerWaiting extends Component {
     };
   }
 
+  checkForNewPlayers = () => {
+
+  }
+
   render() {
     const { classes } = this.props;
     return(
@@ -39,11 +44,11 @@ class PlayerWaiting extends Component {
           <Grid item xs={12}>
             <Paper color="primary" className={classes.paper}>
               <h1>Definitely Not a Lie</h1>
-              <h2>Try to fool the judge with your lie!</h2>
+              <h2>Try not to be fooled by the AI!</h2>
               <h3>
-                In this game, try to fool the judge by filling in the blank 
-                for trivia questions. These trivia questions definitely have some
-                strange answers, so giving bizarre answers can actually help you!
+                In this game, Try not to be fooled by the computers in these
+                trivia questions. These trivia questions definitely have some
+                strange answers, so thinking outside of the box can actually help you!
               </h3>
               <h3>
                 The player to fool the judge most with their answers will win!
@@ -57,20 +62,24 @@ class PlayerWaiting extends Component {
             </Paper>
           </Grid><Grid item xs={2}></Grid>
           <Grid item xs={4}></Grid><Grid item xs={4}>
-            <Paper className={classes.paper}>
-              <h3>Status: {this.props.mainGame.gameStatus.status}</h3>
-            </Paper>
+            <Button
+              id="new-game-button"
+              variant="raised"
+              color="primary"
+              onClick={() => console.log('test')}
+            >Start Game!</Button>
           </Grid><Grid item xs={4}></Grid>
           <Grid item xs={5}>
             <Paper className={classes.paper}>
               <h1>Player 1</h1>
-              <h2>Watson</h2>
+              <h2>Watson (AI)</h2>
             </Paper>
-          </Grid><Grid item xs={2}>
+          </Grid>
+          <Grid item xs={2}>
           </Grid><Grid item xs={5}>
             <Paper className={classes.paper}>
               <h1>Player 2</h1>
-              <h2>Holmes</h2>
+              <h2>Holmes (AI)</h2>
             </Paper>
           </Grid>
         </Grid>
