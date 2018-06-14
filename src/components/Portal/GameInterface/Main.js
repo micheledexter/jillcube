@@ -9,6 +9,13 @@ import '../../../styles/main.css';
 // import Question from './Question';
 // import Scores from './Scores';
 import GameReady from './MainComponents/GameReady';
+import StartGame from './MainComponents/StartGame';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from 'react-router-dom';
 
 // const styles = theme => ({
 //   root: {
@@ -41,7 +48,15 @@ class Main extends Component {
   render() {
     return (
       <div className="Main">
-        <GameReady />
+        <Router>
+          <Switch>
+            <Route
+              path="/home"
+              component={GameReady}
+            />
+          </Switch>
+        </Router>
+        {/* <GameReady /> */}
         {/* <Question prompt="A rejected title in the Magic School Bus series: The Magic School Bus Goes to..." />
         <Responses player1={{name:"Watson", response:"The USSR"}} player2={{name:"Holmes", response:"North Korea"}} />
         <Scores player1="Watson" player2="Holmes"/> */}

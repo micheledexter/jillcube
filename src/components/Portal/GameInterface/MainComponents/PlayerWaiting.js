@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -27,8 +28,8 @@ class PlayerWaiting extends Component {
     super(props);
     this.state = {
       judge: this.props.mainGame.gameStatus.user,
-      playerOne: '',
-      playerTwo: '',
+      watson: '',
+      holmes: '',
     };
   }
 
@@ -62,12 +63,13 @@ class PlayerWaiting extends Component {
             </Paper>
           </Grid><Grid item xs={2}></Grid>
           <Grid item xs={4}></Grid><Grid item xs={4}>
+            <Link to="/game">
             <Button
               id="new-game-button"
               variant="raised"
               color="primary"
-              onClick={() => console.log('test')}
             >Start Game!</Button>
+            </Link>
           </Grid><Grid item xs={4}></Grid>
           <Grid item xs={5}>
             <Paper className={classes.paper}>

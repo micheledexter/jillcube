@@ -14,6 +14,7 @@ import Admin from './components/Portal/Admin/Admin';
 import Mobile from './components/Portal/Mobile/Mobile';
 
 import Home from './components/Portal/Home';
+import StartGame from './components/Portal/GameInterface/MainComponents/StartGame';
 
 import './styles/main.css';
 
@@ -65,6 +66,10 @@ class App extends Component {
               <Route
                 path="/admin"
                 component={Admin}
+              />
+              <Route
+                path="/game"
+                component={StartGame}
               />
               {/* <Route
                 path="/register"
