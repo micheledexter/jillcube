@@ -13,7 +13,7 @@ import StartGame from './MainComponents/StartGame';
 import {
   BrowserRouter as Router,
   Route,
-  Redirect,
+  // Redirect,
   Switch,
 } from 'react-router-dom';
 

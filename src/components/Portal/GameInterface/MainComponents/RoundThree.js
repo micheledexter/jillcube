@@ -23,7 +23,7 @@ const mapStateToProps = state => ({
   state,
 });
 
-class StartGame extends Component {
+class RoundThree extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -57,7 +57,7 @@ class StartGame extends Component {
   render() {
     
     return (
-      <div className="StartGame" style={{ width: window.innerWidth, height: window.innerHeight - 76 }}>
+      <div className="RoundThree" style={{ width: window.innerWidth, height: window.innerHeight - 76 }}>
         <Header showLogin="true" />
         <MuiThemeProvider theme={theme}>
           {(window.innerWidth < 800 || window.innerHeight < 600) ?
@@ -76,4 +76,4 @@ class StartGame extends Component {
   }
 }
 
-export default connect(mapStateToProps)(StartGame);
+export default connect(mapStateToProps)(RoundThree);
