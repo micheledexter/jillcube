@@ -63,13 +63,13 @@ class PlayerWaiting extends Component {
             </Paper>
           </Grid><Grid item xs={2}></Grid>
           <Grid item xs={4}></Grid><Grid item xs={4}>
-            <Link to="/game">
+            <a href="/game">
             <Button
               id="new-game-button"
               variant="raised"
               color="primary"
             >Start Game!</Button>
-            </Link>
+            </a>
           </Grid><Grid item xs={4}></Grid>
           <Grid item xs={5}>
             <Paper className={classes.paper}>

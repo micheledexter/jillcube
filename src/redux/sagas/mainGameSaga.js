@@ -27,8 +27,23 @@ function* startNewGame(action) {
   }
 }
 
+function* getPrompt() {
+  try {
+    const response = yield call (axios.get, `/api/data/list`);
+    const list = response.data;
+    const random = Math.floor(Math.random() * list.length);
+    const chosen = list[random].id;
+    const prompt = yield call (axios.get, `/api/data/id/${chosen}`);
+    const new_prompt = prompt.data[0];
+    yield put ({ type: GAME_ACTIONS.SET_PROMPT, payload: new_prompt });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 function* mainGameSaga() {
   yield takeLatest(GAME_ACTIONS.START_GAME, startNewGame);
+  yield takeLatest(GAME_ACTIONS.NEW_PROMPT, getPrompt);
 }
 
 export default mainGameSaga;

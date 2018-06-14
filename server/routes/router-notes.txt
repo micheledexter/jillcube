@@ -1,2 +1,0 @@
-Yes, I realize how absolutely remarkably vulnerable this entire app is.
-I will fix it all later when I get the time.

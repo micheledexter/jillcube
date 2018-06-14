@@ -8,8 +8,22 @@ const gameStatus = (state = {status: '', user: ''}, action) => {
     default:
       return state;
   }
-}
+};
+
+const gamePrompt = (state = {id: '', prompt: '', answer: ''}, action) => {
+  switch (action.type) {
+    case GAME_ACTIONS.SET_PROMPT:
+      return {
+        id: action.payload.id,
+        prompt: action.payload.prompt,
+        answer: action.payload.answer,
+      }
+    default:
+      return state;
+  }
+};
 
 export default combineReducers({
   gameStatus,
+  gamePrompt,
 });

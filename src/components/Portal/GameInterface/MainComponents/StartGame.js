@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../../../Header/Header';
 import { connect } from 'react-redux';
+import Prompt from './Prompt';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
@@ -29,6 +30,7 @@ class StartGame extends Component {
     this.state = {
       width: window.innerWidth,
       height: window.innerHeight,
+      user: this.props.user.userName,
     };
   }
 
@@ -47,6 +49,7 @@ class StartGame extends Component {
 
   componentDidMount = () => {
     window.addEventListener("resize", this.updateWindowDimensions);
+    console.log('mounted');
     this.setState({location: '1'});
   };
 
@@ -67,7 +70,7 @@ class StartGame extends Component {
               <p>Your screen size is: {window.innerWidth}x{window.innerHeight}</p>
             </div> :
             <div className="inset-shadow">
-              
+              <Prompt user={this.props.user}/>
             </div>
           }
         </MuiThemeProvider>
