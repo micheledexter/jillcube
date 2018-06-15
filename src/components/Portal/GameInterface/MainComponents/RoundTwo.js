@@ -7,6 +7,8 @@ import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
 import orange from '@material-ui/core/colors/orange';
 
+import Prompt2 from './Prompt.2';
+
 const theme = createMuiTheme({
   palette: {
     primary: purple,
@@ -67,7 +69,7 @@ class RoundTwo extends Component {
               <p>Your screen size is: {window.innerWidth}x{window.innerHeight}</p>
             </div> :
             <div className="inset-shadow">
-              
+              <Prompt2 />
             </div>
           }
         </MuiThemeProvider>

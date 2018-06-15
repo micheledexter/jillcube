@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { GAME_ACTIONS } from '../../../../redux/actions/mainGameActions';
-
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
 const mapStateToProps = state => ({
-  game: state.mainGame,
+  prompt: state.mainGame.gamePrompt
 });
 
-class Prompt extends Component {
+class Prompt1 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,20 +25,15 @@ class Prompt extends Component {
 
   render() {
 
-    const current = this.props.game.gamePrompt;
-    const answers = this.props.game.gameAnswer;
+    const current = this.props.prompt;
 
     return(
       <div className="Prompt">
-      {console.log("ID:", current.id)}
-      {console.log("Prompt:", current.prompt)}
-      {console.log("Answer:", current.answer)}
-      {console.log("Possible:", answers[0], answers[1], answers[2])}
       <Grid container spacing={24}>
         <Grid item xs={12}>
           <Paper color="primary">
             <h1>Round 1</h1>
-            <h2>{current.prompt}</h2>
+            <h2>In 2009, Nigerian police arrested a goat on suspicion of _____.</h2>
           </Paper>
         </Grid>
         <Grid item xs={12}>
@@ -49,16 +43,18 @@ class Prompt extends Component {
         <Grid item xs={12}>
         </Grid>
         <Grid item xs={4}>
-          <Paper>
-            <h2>{answers[0]}</h2>
+          <Paper
+            onClick={() => this.setState({clicked: 'true', color1:"red", color2:"green"})}
+          >
+            <h2 style={{backgroundColor:this.state.color1}}>indecent exposure</h2>
           </Paper>
         </Grid><Grid item xs={4}>
           <Paper>
-            <h2>{answers[1]}</h2>
+            <h2>sending email scams</h2>
           </Paper>
         </Grid><Grid item xs={4}>
           <Paper>
-            <h2>{answers[2]}</h2>
+            <h2 style={{backgroundColor: this.state.color2}}>attempted armed robbery</h2>
           </Paper>
         </Grid>
         <Grid item xs={4}></Grid><Grid item xs={4}>
@@ -76,13 +72,13 @@ class Prompt extends Component {
         <Grid item xs={4}>
           <Paper>
             <h1>Watson</h1>
-            <h2>0 points</h2>
+            <h2>{this.state.clicked ? "100 points" : "0 points"}</h2>
           </Paper>
         </Grid>
         <Grid item xs={4}>
           <Paper>
             <h1>kochab</h1>
-            <h2>0 points</h2>
+            <h2>0points</h2>
           </Paper>
         </Grid><Grid item xs={4}>
           <Paper>
@@ -108,4 +104,4 @@ class Prompt extends Component {
   }
 }
 
-export default connect(mapStateToProps)(Prompt);
+export default connect(mapStateToProps)(Prompt1);

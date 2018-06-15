@@ -23,7 +23,17 @@ const gamePrompt = (state = {id: '', prompt: '', answer: ''}, action) => {
   }
 };
 
+const gameAnswer = (state = {true: '', watsonLie: '', holmesLie: ''}, action) => {
+  switch (action.type) {
+    case GAME_ACTIONS.ADD_ANSWER:
+      return [...state, ...action.payload];
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
   gameStatus,
   gamePrompt,
+  gameAnswer,
 });

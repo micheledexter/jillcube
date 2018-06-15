@@ -14,6 +14,8 @@ const dataRouter = require('./routes/data.router');
 const playerRouter = require('./routes/players.router');
 const gameInstanceRouter = require('./routes/game-instance.router');
 const answerRouter = require('./routes/answer.router');
+const watsonRouter = require('./routes/watson.router');
+const holmesRouter = require('./routes/holmes.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -32,6 +34,8 @@ app.use('/api/data', dataRouter);
 app.use('/api/players', playerRouter);
 app.use('/api/game-instance', gameInstanceRouter);
 app.use('/api/answers', answerRouter);
+app.use('/api/watson', watsonRouter);
+app.use('/api/holmes', holmesRouter);
 
 // Serve static files
 app.use(express.static('build'));
