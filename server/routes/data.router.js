@@ -53,7 +53,7 @@ router.get('/list', (req, res) => {
 router.post('/', (req, res) => {
   if (req.isAuthenticated()) {
     let queryText = `INSERT INTO "game_data" ("prompt", "game_id", "answer") VALUES ($1, $2, $3);`;
-    let queryBody = [req.body.prompt, req.body.game_id, req.body.answer];
+    let queryBody = [req.body.prompt, '2', req.body.answer];
     pool.query(queryText, queryBody).then(response => {
       res.sendStatus(201);
     }).catch(error => {

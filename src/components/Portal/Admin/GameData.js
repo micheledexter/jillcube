@@ -8,6 +8,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
+import { ADMIN_ACTIONS } from '../../../redux/actions/adminActions';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -115,7 +116,7 @@ class GameData extends Component {
                       id={item.id}
                       variant="raised"
                       color="secondary"
-                      onClick={() => this.props.dispatch({ type: "DELETE_DATA_ENTRY", payload: item.id })}
+                      onClick={() => this.props.dispatch({ type: ADMIN_ACTIONS.DELETE_DATA_ENTRY, payload: item.id })}
                     >Delete</Button>
                   </TableCell>
                 </TableRow>
