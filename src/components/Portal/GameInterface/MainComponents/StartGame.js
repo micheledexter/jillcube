@@ -70,7 +70,7 @@ class StartGame extends Component {
               <p>Your screen size is: {window.innerWidth}x{window.innerHeight}</p>
             </div> :
             <div className="inset-shadow">
-              <Prompt user={this.props.user}/>
+              <Prompt />
             </div>
           }
         </MuiThemeProvider>

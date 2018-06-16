@@ -8,7 +8,7 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
 const mapStateToProps = state => ({
-  round: state.mainGame.prompt1,
+  round: state.mainGame.prompt3,
   player: state.user.userName,
   scores: state.mainGame.scores,
   state,
@@ -21,13 +21,6 @@ class Prompt extends Component {
       color1: 'inherit',
       color2: 'inherit',
     }
-  }
-
-  componentDidMount = () => {
-    this.props.dispatch({ type: GAME_ACTIONS.NEW_PROMPT });
-    this.props.dispatch({ type: GAME_ACTIONS.SET_PLAYER_SCORE, payload: 0 });
-    this.props.dispatch({ type: GAME_ACTIONS.SET_WATSON_SCORE, payload: 0 });
-    this.props.dispatch({ type: GAME_ACTIONS.SET_HOLMES_SCORE, payload: 0 });
   }
 
   use = (item) => {
@@ -75,7 +68,7 @@ class Prompt extends Component {
       <div className="Prompt">
         <div style={{ height: window.innerHeight / 4 }}>
           <Paper className="prompt-banner" color="primary">
-            <h1>Round 1</h1>
+            <h1>Final Round</h1>
             <h2>{this.use('prompt')}</h2>
           </Paper>
         </div>
@@ -123,7 +116,7 @@ class Prompt extends Component {
           </div>
         </div>
         {this.state.clicked ? <div>
-          <Link to="/2" style={{ marginLeft: 'auto' }}>
+          <Link to="/end" style={{ marginLeft: 'auto' }}>
             <Button
               variant="raised"
               color="primary"

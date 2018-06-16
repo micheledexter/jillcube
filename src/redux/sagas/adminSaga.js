@@ -13,9 +13,19 @@ function* getGameData() {
 }
 
 function* addNewSubmission(action) {
-  const submission = action.payload
+  const submission = action.payload;
   try {
     yield call (axios.post, '/api/data/', submission);
+    getGameData();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function* deleteDataSubmission(action) {
+  const id = action.payload;
+  try {
+    yield call (axios.delete, `/api/data/${id}`);
     getGameData();
   } catch (error) {
     console.error(error);
@@ -25,6 +35,7 @@ function* addNewSubmission(action) {
 function* adminSaga() {
   yield takeLatest(ADMIN_ACTIONS.GET_GAME_DATA, getGameData);
   yield takeLatest(ADMIN_ACTIONS.NEW_SUBMISSION, addNewSubmission);
+  yield takeLatest(ADMIN_ACTIONS.DELETE_DATA_ENTRY, deleteDataSubmission);
 }
 
 export default adminSaga;

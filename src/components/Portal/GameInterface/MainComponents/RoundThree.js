@@ -6,7 +6,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
 import orange from '@material-ui/core/colors/orange';
-import Prompt3 from './Prompt.3';
+import PromptThree from './PromptThree';
 
 const theme = createMuiTheme({
   palette: {
@@ -68,7 +68,7 @@ class RoundThree extends Component {
               <p>Your screen size is: {window.innerWidth}x{window.innerHeight}</p>
             </div> :
             <div className="inset-shadow">
-              <Prompt3 />
+              <PromptThree />
             </div>
           }
         </MuiThemeProvider>
