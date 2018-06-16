@@ -9,7 +9,7 @@ import '../../../styles/main.css';
 // import Question from './Question';
 // import Scores from './Scores';
 import GameReady from './MainComponents/GameReady';
-import StartGame from './MainComponents/StartGame';
+// import StartGame from './MainComponents/StartGame';
 import {
   BrowserRouter as Router,
   Route,

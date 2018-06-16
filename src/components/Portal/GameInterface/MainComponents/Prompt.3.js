@@ -25,7 +25,7 @@ class Prompt extends Component {
 
   render() {
 
-    const current = this.props.prompt;
+    // const current = this.props.prompt;
 
     return(
       <div className="Prompt">

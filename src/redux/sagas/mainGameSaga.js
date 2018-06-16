@@ -2,10 +2,10 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { GAME_ACTIONS } from '../actions/mainGameActions';
 import axios from 'axios';
 import { 
-  setGameStatus, 
-  getGameInstances, 
+  // setGameStatus, 
+  // getGameInstances, 
   createGameInstance,
-  getPendingGameByCode,
+  // getPendingGameByCode,
 } from '../requests/mainGameRequests';
 
 function* startNewGame(action) {

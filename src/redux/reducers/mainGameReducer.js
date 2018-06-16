@@ -32,8 +32,20 @@ const gameAnswer = (state = {true: '', watsonLie: '', holmesLie: ''}, action) =>
   }
 }
 
+const gameRound = (state = 0, action) => {
+  switch(action.type) {
+    case GAME_ACTIONS.NEXT_ROUND:
+      return state + 1;
+    case GAME_ACTIONS.RESTART_ROUNDS:
+      return 0;
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
   gameStatus,
   gamePrompt,
   gameAnswer,
+  gameRound,
 });
