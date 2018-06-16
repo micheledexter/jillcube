@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 
 const mapStateToProps = state => ({
   game: state.mainGame,
+  player: state.user.userName,
 });
 
 class Prompt extends Component {
@@ -24,22 +25,42 @@ class Prompt extends Component {
     this.props.dispatch({ type:GAME_ACTIONS.NEW_PROMPT });
   }
 
-  render() {
+  use = (item) => {
+    switch(item) {
+      case 'player':
+        return this.props.player;
+      case 'id':
+        return this.props.game.gamePrompt.id;
+      case 'prompt':
+        return this.props.game.gamePrompt.prompt;
+      case 'answer':
+        return this.props.game.gamePrompt.answer;
+      case 'frame1':
+        return this.props.game.gameAnswer[0];
+      case 'frame2':
+        return this.props.game.gameAnswer[1];
+      case 'frame3':
+        return this.props.game.gameAnswer[2];
+      default:
+        console.log(`ERROR: ${item} not found`);
+    }
+  }
 
-    const current = this.props.game.gamePrompt;
-    const answers = this.props.game.gameAnswer;
+  render() {
 
     return(
       <div className="Prompt">
-      {console.log("ID:", current.id)}
-      {console.log("Prompt:", current.prompt)}
-      {console.log("Answer:", current.answer)}
-      {console.log("Possible:", answers[0], answers[1], answers[2])}
+      {console.log("Player:", this.use('player'))}
+      {console.log("ID:", this.use('id'))}
+      {console.log("Prompt:", this.use('prompt'))}
+      {console.log("Answer:", this.use('answer'))}
+      {console.log(`Possible: ${this.use('frame1')}, ${this.use('frame2')}, ${this.use('frame3')}`)}
+      {this.use('poop')}
       <Grid container spacing={24}>
         <Grid item xs={12}>
           <Paper color="primary">
             <h1>Round 1</h1>
-            <h2>{current.prompt}</h2>
+            <h2>{this.use('prompt')}</h2>
           </Paper>
         </Grid>
         <Grid item xs={12}>
@@ -50,15 +71,15 @@ class Prompt extends Component {
         </Grid>
         <Grid item xs={4}>
           <Paper>
-            <h2>{answers[0]}</h2>
+            <h2>{this.use('frame1')}</h2>
           </Paper>
         </Grid><Grid item xs={4}>
           <Paper>
-            <h2>{answers[1]}</h2>
+            <h2>{this.use('frame2')}</h2>
           </Paper>
         </Grid><Grid item xs={4}>
           <Paper>
-            <h2>{answers[2]}</h2>
+            <h2>{this.use('frame3')}</h2>
           </Paper>
         </Grid>
         <Grid item xs={4}></Grid><Grid item xs={4}>
@@ -81,7 +102,7 @@ class Prompt extends Component {
         </Grid>
         <Grid item xs={4}>
           <Paper>
-            <h1>kochab</h1>
+            <h1>{this.use('player')}</h1>
             <h2>0 points</h2>
           </Paper>
         </Grid><Grid item xs={4}>

@@ -43,9 +43,19 @@ const gameRound = (state = 0, action) => {
   }
 }
 
+const gamePlayer = (state = '', action) => {
+  switch(action.type) {
+    case GAME_ACTIONS.SET_PLAYER:
+      return action.payload;
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
   gameStatus,
   gamePrompt,
   gameAnswer,
   gameRound,
+  gamePlayer,
 });
