@@ -18,8 +18,10 @@ class Prompt extends Component {
     super(props);
     this.state = {
       clicked: false,
-      color1: 'inherit',
-      color2: 'inherit',
+      correctBg: 'inherit',
+      incorrectBg: 'inherit',
+      correctFc: 'inherit',
+      incorrectFc: 'inherit',
     }
   }
 
@@ -58,7 +60,19 @@ class Prompt extends Component {
       }
       this.setState({
         clicked: true,
+        correctBg: 'green',
+        incorrectBg: 'red',
+        correctFc: 'white',
+        incorrectFc: 'grey',
       });
+    }
+  }
+
+  frame = (frame) => {
+    if (frame === this.use('answer')) {
+      return <h2 style={{ backgroundColor:this.state.correctBg, color:this.state.correctFc }}>{frame}</h2>
+    } else {
+      return <h2 style={{ backgroundColor:this.state.incorrectBg, color:this.state.incorrectFc }}>{frame}</h2>
     }
   }
 
@@ -77,21 +91,21 @@ class Prompt extends Component {
             <Paper
               onClick={() => this.clickAnswer(this.use('frame1'))}
               className="frame">
-              <h2>{this.use('frame1')}</h2>
+              {this.frame(this.use('frame1'))}
             </Paper>
           </div>
           <div style={{ display: 'inline-block', width: window.innerWidth / 3.1, margin: '2px' }}>
             <Paper
               onClick={() => this.clickAnswer(this.use('frame2'))}
               className="frame">
-              <h2>{this.use('frame2')}</h2>
+              {this.frame(this.use('frame2'))}
             </Paper>
           </div>
           <div style={{ display: 'inline-block', width: window.innerWidth / 3.1, margin: '1px' }}>
             <Paper
               onClick={() => this.clickAnswer(this.use('frame3'))}
               className="frame">
-              <h2>{this.use('frame3')}</h2>
+              {this.frame(this.use('frame3'))}
             </Paper>
           </div>
         </div>

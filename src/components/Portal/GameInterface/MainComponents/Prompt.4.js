@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { GAME_ACTIONS } from '../../../../redux/actions/mainGameActions';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 
 const mapStateToProps = state => ({
   scores: state.mainGame.scores,
@@ -51,6 +52,16 @@ class Prompt extends Component {
             <h1>The winner is...</h1>
             {this.tallyScores()}
           </Paper>
+          <div style={{ height:'200px' }}></div>
+          <div style={{ textAlign:'center' }}>
+            <a href="/game">
+              <Button
+                variant="raised"
+                color="secondary"
+                >Play another game!
+              </Button>
+            </a>
+          </div>
         </Grid>
       </Grid>
       </div>
