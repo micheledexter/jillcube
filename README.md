@@ -263,12 +263,6 @@ If you would like to name your database something else, you will need to change 
 * Run `npm run client`
 * Navigate to `localhost:3000`
 
-## Linting
-
-The Airbnb ESLint for react is a part of this project. If you would like to take advantage of this in VS Code, you can add the `ESLint` extension. Click the `Extensions` button (the button right below the `Debug`) and search for `ESLint`. Click `install` for the first result and then click `Reload`. Then it should be all set up!
-
-![VSCode Toolbar](documentation/images/vscode-toolbar.png)
-
 ## Production Build
 
 This is the build Heroku will run, but during development, you will likely not need to use it.
